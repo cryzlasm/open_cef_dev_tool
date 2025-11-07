@@ -5,6 +5,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -14,7 +15,7 @@ jobs:
     strategy:
       matrix:
         configuration: [Release]
-        platform: [x64]
+        platform: [x86, x64]
 
     steps:
     - name: Checkout code
@@ -25,14 +26,64 @@ jobs:
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.1
 
+    - name: Create directories
+      run: |
+        mkdir -p bin\${{ matrix.configuration }}\${{ matrix.platform }}
+        mkdir -p obj\${{ matrix.configuration }}\${{ matrix.platform }}
+
     - name: Build solution
       run: |
-        msbuild libcef_dev_tool.sln /p:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }} /m
+        # 根据平台设置环境变量
+        if ("${{ matrix.platform }}" -eq "x86") {
+          $platformArg = "Win32"
+        } else {
+          $platformArg = "x64"
+        }
+
+        # 使用MSBuild编译
+        msbuild libcef_dev_tool.sln /p:Configuration=${{ matrix.configuration }} /p:Platform=$platformArg /m
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
         name: libcef-dev-tool-${{ matrix.platform }}-${{ matrix.configuration }}
         path: |
-          bin/${{ matrix.configuration }}/
-          !bin/${{ matrix.configuration }}/*.pdb
+          bin/${{ matrix.configuration }}/${{ matrix.platform }}/
+          !bin/${{ matrix.configuration }}/${{ matrix.platform }}/*.pdb
+
+  build-with-cmake:
+    name: Build with CMake (Alternative)
+    runs-on: windows-latest
+
+    strategy:
+      matrix:
+        configuration: [Release]
+        platform: [Win32, x64]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup MSVC compiler
+      uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: ${{ matrix.platform }}
+
+    - name: Build with CL
+      run: |
+        # 创建输出目录
+        mkdir -p bin\${{ matrix.configuration }}\${{ matrix.platform }}
+
+        # 编译源文件
+        cl /LD /D_WIN32 /D_WINDOWS /DNDEBUG /O2 /Oi /GL /EHsc /MT ^
+           /I"src" /I"src/detours" /I"src/libcef/include" ^
+           src/worker.cpp src/detours/*.cpp ^
+           /link /OUT:"bin/${{ matrix.configuration }}/${{ matrix.platform }}/libcef_dev_tool.dll" ^
+           /DEF:"src/exports.def" ^
+           kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: libcef-dev-tool-cmake-${{ matrix.platform }}-${{ matrix.configuration }}
+        path: bin/${{ matrix.configuration }}/${{ matrix.platform }}/

@@ -9,7 +9,7 @@
 - 通过F12键打开CEF开发者工具
 - 使用DLL劫持技术，无需修改目标应用程序
 - 基于Detours库实现API Hook
-- 支持Windows 32位系统
+- 支持Windows 32位和64位系统
 
 ## 使用方法
 
@@ -22,28 +22,19 @@
 2. 确保目录结构正确
 
 ### 3. 编译项目
-有三种方式编译项目：
+有两种方式编译项目：
 
 #### 方法1: 使用Visual Studio
 1. 打开`libcef_dev_tool.sln`解决方案文件
 2. 选择合适的配置(Release/Debug)和平台(Win32/x64)
 3. 点击"生成解决方案"
 
-#### 方法2: 使用命令行
-```cmd
-# 使用批处理脚本
-build.bat
-
-# 或使用PowerShell脚本
-powershell -ExecutionPolicy Bypass -File build.ps1
-```
-
-#### 方法3: 使用GitHub Actions (推荐)
-项目配置了GitHub Actions自动编译，每次推送到main分支或创建Pull Request时都会自动编译。您也可以手动触发编译：
+#### 方法2: 使用GitHub Actions (推荐)
+项目配置了GitHub Actions自动编译，支持Windows x86和x64平台。每次推送到main分支或创建Pull Request时都会自动编译。您也可以手动触发编译：
 1. 转到项目的Actions页面
 2. 选择"Build libcef Dev Tool"工作流
 3. 点击"Run workflow"按钮
-4. 编译完成后，可以在Artifacts中下载生成的二进制文件
+4. 编译完成后，可以在Artifacts中下载生成的二进制文件（包含x86和x64两个平台的版本）
 
 ### 4. 部署DLL
 编译完成后，将生成的DLL文件部署到目标应用程序的目录中：
@@ -55,22 +46,20 @@ powershell -ExecutionPolicy Bypass -File build.ps1
 
 ```
 ├── src/
-│   ├── AheadLib_libcef_fixed.cpp    # DLL导出转发器
-│   ├── open_dev_tool_fixed.cpp      # 开发者工具Hook实现
+│   ├── worker.cpp                   # 主要实现文件（包含DLL导出转发和开发者工具Hook）
+│   ├── exports.def                  # DLL导出定义文件
 │   ├── detours/                     # Detours库
 │   └── libcef/                      # CEF库文件
 ├── libcef_dev_tool.sln              # Visual Studio解决方案文件
 ├── libcef_dev_tool.vcxproj          # Visual Studio项目文件
-├── build.bat                        # Windows批处理编译脚本
-├── build.ps1                        # PowerShell编译脚本
 └── README.md                        # 本文档
 ```
 
 ## 技术原理
 
 1. **DLL劫持**: 通过将原`libcef.dll`重命名为`libcef_org.dll`，并将我们的DLL命名为`libcef.dll`，实现DLL劫持
-2. **导出转发**: `AheadLib_libcef_fixed.cpp`将所有原`libcef.dll`的导出函数转发到`libcef_org.dll`
-3. **API Hook**: `open_dev_tool_fixed.cpp`使用Detours库Hook CEF的API，在用户按下F12时显示开发者工具
+2. **导出转发**: `exports.def`将所有原`libcef.dll`的导出函数转发到`libcef_org.dll`
+3. **API Hook**: `worker.cpp`使用Detours库Hook CEF的API，在用户按下F12时显示开发者工具
 
 ## 注意事项
 
