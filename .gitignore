@@ -20,7 +20,7 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
+#*.dll
 
 # Fortran module files
 *.mod
@@ -39,3 +39,41 @@
 
 # debug information files
 *.dwo
+### C++ template
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+#*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+.idea
+
+# Exception for our project DLLs
+!libcef_dev_tool.dll

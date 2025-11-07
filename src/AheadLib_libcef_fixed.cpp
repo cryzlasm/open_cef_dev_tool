@@ -1,0 +1,82 @@
+_utf8_to_utf16,@148")
+#pragma comment(linker, "/EXPORT:cef_string_utf8_to_wide=libcef_org.cef_string_utf8_to_wide,@149")
+#pragma comment(linker, "/EXPORT:cef_string_wide_clear=libcef_org.cef_string_wide_clear,@150")
+#pragma comment(linker, "/EXPORT:cef_string_wide_cmp=libcef_org.cef_string_wide_cmp,@151")
+#pragma comment(linker, "/EXPORT:cef_string_wide_set=libcef_org.cef_string_wide_set,@152")
+#pragma comment(linker, "/EXPORT:cef_string_wide_to_utf16=libcef_org.cef_string_wide_to_utf16,@153")
+#pragma comment(linker, "/EXPORT:cef_string_wide_to_utf8=libcef_org.cef_string_wide_to_utf8,@154")
+#pragma comment(linker, "/EXPORT:cef_task_runner_get_for_current_thread=libcef_org.cef_task_runner_get_for_current_thread,@155")
+#pragma comment(linker, "/EXPORT:cef_task_runner_get_for_thread=libcef_org.cef_task_runner_get_for_thread,@156")
+#pragma comment(linker, "/EXPORT:cef_test_server_create_and_start=libcef_org.cef_test_server_create_and_start,@157")
+#pragma comment(linker, "/EXPORT:cef_textfield_create=libcef_org.cef_textfield_create,@158")
+#pragma comment(linker, "/EXPORT:cef_thread_create=libcef_org.cef_thread_create,@159")
+#pragma comment(linker, "/EXPORT:cef_time_delta=libcef_org.cef_time_delta,@160")
+#pragma comment(linker, "/EXPORT:cef_time_from_basetime=libcef_org.cef_time_from_basetime,@161")
+#pragma comment(linker, "/EXPORT:cef_time_from_doublet=libcef_org.cef_time_from_doublet,@162")
+#pragma comment(linker, "/EXPORT:cef_time_from_timet=libcef_org.cef_time_from_timet,@163")
+#pragma comment(linker, "/EXPORT:cef_time_now=libcef_org.cef_time_now,@164")
+#pragma comment(linker, "/EXPORT:cef_time_to_basetime=libcef_org.cef_time_to_basetime,@165")
+#pragma comment(linker, "/EXPORT:cef_time_to_doublet=libcef_org.cef_time_to_doublet,@166")
+#pragma comment(linker, "/EXPORT:cef_time_to_timet=libcef_org.cef_time_to_timet,@167")
+#pragma comment(linker, "/EXPORT:cef_trace_counter=libcef_org.cef_trace_counter,@168")
+#pragma comment(linker, "/EXPORT:cef_trace_counter_id=libcef_org.cef_trace_counter_id,@169")
+#pragma comment(linker, "/EXPORT:cef_trace_event_async_begin=libcef_org.cef_trace_event_async_begin,@170")
+#pragma comment(linker, "/EXPORT:cef_trace_event_async_end=libcef_org.cef_trace_event_async_end,@171")
+#pragma comment(linker, "/EXPORT:cef_trace_event_async_step_into=libcef_org.cef_trace_event_async_step_into,@172")
+#pragma comment(linker, "/EXPORT:cef_trace_event_async_step_past=libcef_org.cef_trace_event_async_step_past,@173")
+#pragma comment(linker, "/EXPORT:cef_trace_event_begin=libcef_org.cef_trace_event_begin,@174")
+#pragma comment(linker, "/EXPORT:cef_trace_event_end=libcef_org.cef_trace_event_end,@175")
+#pragma comment(linker, "/EXPORT:cef_trace_event_instant=libcef_org.cef_trace_event_instant,@176")
+#pragma comment(linker, "/EXPORT:cef_translator_test_create=libcef_org.cef_translator_test_create,@177")
+#pragma comment(linker, "/EXPORT:cef_translator_test_ref_ptr_library_child_child_create=libcef_org.cef_translator_test_ref_ptr_library_child_child_create,@178")
+#pragma comment(linker, "/EXPORT:cef_translator_test_ref_ptr_library_child_create=libcef_org.cef_translator_test_ref_ptr_library_child_create,@179")
+#pragma comment(linker, "/EXPORT:cef_translator_test_ref_ptr_library_create=libcef_org.cef_translator_test_ref_ptr_library_create,@180")
+#pragma comment(linker, "/EXPORT:cef_translator_test_scoped_library_child_child_create=libcef_org.cef_translator_test_scoped_library_child_child_create,@181")
+#pragma comment(linker, "/EXPORT:cef_translator_test_scoped_library_child_create=libcef_org.cef_translator_test_scoped_library_child_create,@182")
+#pragma comment(linker, "/EXPORT:cef_translator_test_scoped_library_create=libcef_org.cef_translator_test_scoped_library_create,@183")
+#pragma comment(linker, "/EXPORT:cef_uridecode=libcef_org.cef_uridecode,@184")
+#pragma comment(linker, "/EXPORT:cef_uriencode=libcef_org.cef_uriencode,@185")
+#pragma comment(linker, "/EXPORT:cef_urlrequest_create=libcef_org.cef_urlrequest_create,@186")
+#pragma comment(linker, "/EXPORT:cef_v8context_get_current_context=libcef_org.cef_v8context_get_current_context,@187")
+#pragma comment(linker, "/EXPORT:cef_v8context_get_entered_context=libcef_org.cef_v8context_get_entered_context,@188")
+#pragma comment(linker, "/EXPORT:cef_v8context_in_context=libcef_org.cef_v8context_in_context,@189")
+#pragma comment(linker, "/EXPORT:cef_v8stack_trace_get_current=libcef_org.cef_v8stack_trace_get_current,@190")
+#pragma comment(linker, "/EXPORT:cef_v8value_create_array=libcef_org.cef_v8value_create_array,@191")
+#pragma comment(linker, "/EXPORT:cef_v8value_create_array_buffer=libcef_org.cef_v8value_create_array_buffer,@192")
+#pragma comment(linker, "/EXPORT:cef_v8value_create_bool=libcef_org.cef_v8value_create_bool,@193")
+#pragma comment(linker, "/EXPORT:cef_v8value_create_date=libcef_org.cef_v8value_create_date,@194")
+#pragma comment(linker, "/EXPORT:cef_v8value_create_double=libcef_org.cef_v8value_create_double,@195")
+#pragma comment(linker, "/EXPORT:cef_v8value_create_function=libcef_org.cef_v8value_create_function,@196")
+#pragma comment(linker, "/EXPORT:cef_v8value_create_int=libcef_org.cef_v8value_create_int,@197")
+#pragma comment(linker, "/EXPORT:cef_v8value_create_null=libcef_org.cef_v8value_create_null,@198")
+#pragma comment(linker, "/EXPORT:cef_v8value_create_object=libcef_org.cef_v8value_create_object,@199")
+#pragma comment(linker, "/EXPORT:cef_v8value_create_promise=libcef_org.cef_v8value_create_promise,@200")
+#pragma comment(linker, "/EXPORT:cef_v8value_create_string=libcef_org.cef_v8value_create_string,@201")
+#pragma comment(linker, "/EXPORT:cef_v8value_create_uint=libcef_org.cef_v8value_create_uint,@202")
+#pragma comment(linker, "/EXPORT:cef_v8value_create_undefined=libcef_org.cef_v8value_create_undefined,@203")
+#pragma comment(linker, "/EXPORT:cef_value_create=libcef_org.cef_value_create,@204")
+#pragma comment(linker, "/EXPORT:cef_version_info=libcef_org.cef_version_info,@205")
+#pragma comment(linker, "/EXPORT:cef_waitable_event_create=libcef_org.cef_waitable_event_create,@206")
+#pragma comment(linker, "/EXPORT:cef_window_create_top_level=libcef_org.cef_window_create_top_level,@207")
+#pragma comment(linker, "/EXPORT:cef_write_json=libcef_org.cef_write_json,@208")
+#pragma comment(linker, "/EXPORT:cef_xml_reader_create=libcef_org.cef_xml_reader_create,@209")
+#pragma comment(linker, "/EXPORT:cef_zip_directory=libcef_org.cef_zip_directory,@210")
+#pragma comment(linker, "/EXPORT:cef_zip_reader_create=libcef_org.cef_zip_reader_create,@211")
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 入口函数
+BOOL WINAPI DllMain(HMODULE hModule, DWORD dwReason, PVOID pvReserved)
+{
+	if (dwReason == DLL_PROCESS_ATTACH)
+	{
+		DisableThreadLibraryCalls(hModule);
+	}
+	else if (dwReason == DLL_PROCESS_DETACH)
+	{
+	}
+
+	return TRUE;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

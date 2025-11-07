@@ -1,0 +1,38 @@
+name: Build libcef Dev Tool
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build on Windows
+    runs-on: windows-latest
+
+    strategy:
+      matrix:
+        configuration: [Release]
+        platform: [x64]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Build solution
+      run: |
+        msbuild libcef_dev_tool.sln /p:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }} /m
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: libcef-dev-tool-${{ matrix.platform }}-${{ matrix.configuration }}
+        path: |
+          bin/${{ matrix.configuration }}/
+          !bin/${{ matrix.configuration }}/*.pdb
