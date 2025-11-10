@@ -36,6 +36,8 @@
 3. 点击"Run workflow"按钮
 4. 编译完成后，可以在Artifacts中下载生成的二进制文件（包含x86和x64两个平台的版本）
 
+> 注意：项目现在使用Visual Studio 2019工具集进行编译，以确保与GitHub Actions的windows-2022环境兼容。
+
 ### 4. 部署DLL
 编译完成后，将生成的DLL文件部署到目标应用程序的目录中：
 1. 将生成的`libcef_dev_tool.dll`重命名为`libcef.dll`

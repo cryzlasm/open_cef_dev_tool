@@ -9,8 +9,8 @@ on:
 
 jobs:
   build:
-    name: Build on Windows with VS2013
-    runs-on: windows-2019  # VS2013 is not available on windows-latest, using windows-2019 which has VS2019 but we'll use the VS2013 toolset
+    name: Build on Windows
+    runs-on: windows-2022
 
     strategy:
       matrix:
@@ -23,12 +23,12 @@ jobs:
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.1
 
-    - name: Build with MSBuild (VS2013)
+    - name: Build with MSBuild
       run: |
         if ("${{ matrix.platform }}" -eq "x86") {
-          msbuild libcef_dev_tool.sln /p:Configuration=Release /p:Platform=Win32 /p:PlatformToolset=v120 /m
+          msbuild libcef_dev_tool.sln /p:Configuration=Release /p:Platform=Win32 /m
         } else {
-          msbuild libcef_dev_tool.sln /p:Configuration=Release /p:Platform=x64 /p:PlatformToolset=v120 /m
+          msbuild libcef_dev_tool.sln /p:Configuration=Release /p:Platform=x64 /m
         }
 
     - name: Upload artifacts
