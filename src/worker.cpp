@@ -5,7 +5,6 @@
 // 头文件
 // dllmain.cpp : 定义 DLL 应用程序的入口点。
 // code from https://bbs.kanxue.com/thread-274426.htm
-#include "pch.h"
 #include "./detours/detours.h"
 #include "./libcef/include/capi/cef_browser_capi.h"
 #include "./libcef/include/capi/cef_client_capi.h"
