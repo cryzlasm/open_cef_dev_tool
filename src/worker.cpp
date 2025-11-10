@@ -241,10 +241,10 @@ void SetAsPopup(cef_window_info_t* window_info) {
     window_info->style =
         WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN | WS_CLIPSIBLINGS | WS_VISIBLE;
     window_info->parent_window = NULL;
-    window_info->x = CW_USEDEFAULT;
-    window_info->y = CW_USEDEFAULT;
-    window_info->width = CW_USEDEFAULT;
-    window_info->height = CW_USEDEFAULT;
+    window_info->bounds.x = CW_USEDEFAULT;
+    window_info->bounds.y = CW_USEDEFAULT;
+    window_info->bounds.width = CW_USEDEFAULT;
+    window_info->bounds.height = CW_USEDEFAULT;
 }
 
 
