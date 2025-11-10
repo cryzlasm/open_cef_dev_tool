@@ -7,10 +7,10 @@
 // code from https://bbs.kanxue.com/thread-274426.htm
 #include <Windows.h>
 #include "./detours/detours.h"
-#include "capi/cef_browser_capi.h"
-#include "capi/cef_client_capi.h"
-#include "internal/cef_types_win.h"
-#include "internal/cef_win.h"
+#include "include/capi/cef_browser_capi.h"
+#include "include/capi/cef_client_capi.h"
+#include "include/internal/cef_types_win.h"
+#include "include/internal/cef_win.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
